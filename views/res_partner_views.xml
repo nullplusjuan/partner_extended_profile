@@ -9,8 +9,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//notebook" position="inside">
-                <page string="Personal Details" invisible="is_company">
+            <xpath expr="//page[@name='contact_addresses']" position="before">
+                <page string="Personal Details" name="personal_details" invisible="is_company">
                     <group>
                         <group string="Personal">
                             <field name="birth_date"/>
