@@ -1,3 +1,8 @@
+<!--
+Copyright 2026 Joshua D
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 <odoo>
     <record id="view_partner_form_extended_profile" model="ir.ui.view">
         <field name="name">res.partner.form.extended.profile</field>
@@ -18,6 +23,15 @@
                             <field name="employer"/>
                         </group>
                     </group>
+                    <separator string="Identification" groups="base.group_system"/>
+                    <field name="identity_document_ids" context="{'default_partner_id': id}" groups="base.group_system">
+                        <list editable="bottom">
+                            <field name="identity_type_id"/>
+                            <field name="number"/>
+                            <field name="document_copy" filename="document_filename"/>
+                            <field name="document_filename" column_invisible="True"/>
+                        </list>
+                    </field>
                 </page>
             </xpath>
         </field>

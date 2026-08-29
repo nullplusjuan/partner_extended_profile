@@ -1,0 +1,52 @@
+<!--
+Copyright 2026 Joshua D
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="view_partner_identity_type_list" model="ir.ui.view">
+        <field name="name">res.partner.identity.type.list</field>
+        <field name="model">res.partner.identity.type</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="country_id"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_partner_identity_type_form" model="ir.ui.view">
+        <field name="name">res.partner.identity.type.form</field>
+        <field name="model">res.partner.identity.type</field>
+        <field name="arch" type="xml">
+            <form string="Identity Document Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="country_id"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_identity_types" model="ir.actions.act_window">
+        <field name="name">Identity Document Types</field>
+        <field name="res_model">res.partner.identity.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_partner_identity_configuration"
+              name="Identity Document Types"
+              parent="contacts.res_partner_menu_contacts"
+              action="action_partner_identity_types"
+              sequence="90"
+              groups="base.group_system"/>
+</odoo>
