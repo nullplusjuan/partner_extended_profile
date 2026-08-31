@@ -13,7 +13,7 @@
                     </group>
                     <separator string="Identification" groups="base.group_system"/>
                     <field name="identity_document_ids" context="{'default_partner_id': id}" groups="base.group_system">
-                        <list editable="bottom"><field name="identity_type_id"/><field name="number"/><field name="document_copy" filename="document_filename"/><field name="document_filename" column_invisible="True"/></list>
+                        <list editable="bottom"><field name="identity_type_id"/><field name="number"/><field name="issue_date"/><field name="expiry_date"/><field name="document_copy" filename="document_filename"/><field name="document_filename" column_invisible="True"/></list>
                     </field>
                 </page>
             </xpath>

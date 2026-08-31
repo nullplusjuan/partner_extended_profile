@@ -29,10 +29,18 @@ class PartnerIdentityDocument(models.Model):
     number = fields.Char(string="ID Number", required=True, index=True)
     document_copy = fields.Binary(string="Copy of ID", attachment=True)
     document_filename = fields.Char(string="Filename")
+    issue_date = fields.Date(string="Issue Date")
+    expiry_date = fields.Date(string="Expiry Date")
     notes = fields.Text()
     active = fields.Boolean(default=True)
 
-    @api.constrains("partner_id", "identity_type_id", "number")
+    @api.constrains("issue_date", "expiry_date")
+    def _check_identity_dates(self):
+        for record in self:
+            if record.issue_date and record.expiry_date and record.expiry_date < record.issue_date:
+                raise ValidationError("Identity expiry date cannot be before its issue date.")
+
+    @api.constrains("partner_id", "identity_type_id", "number", "issue_date", "expiry_date")
     def _check_unique_partner_identity(self):
         for record in self:
             if not record.partner_id or not record.identity_type_id or not record.number:
@@ -42,6 +50,8 @@ class PartnerIdentityDocument(models.Model):
                 ("partner_id", "=", record.partner_id.id),
                 ("identity_type_id", "=", record.identity_type_id.id),
                 ("number", "=", record.number),
+                ("issue_date", "=", record.issue_date or False),
+                ("expiry_date", "=", record.expiry_date or False),
             ])
             if duplicate:
-                raise ValidationError("This partner already has an identity document with the same type and number.")
+                raise ValidationError("This partner already has an identity document with the same type, number and dates.")
