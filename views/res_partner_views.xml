@@ -9,7 +9,7 @@
                 <page string="Personal Details" name="personal_details" invisible="is_company">
                     <group>
                         <group string="Personal"><field name="birth_date"/><field name="gender"/><field name="marital_status"/></group>
-                        <group string="Additional Contact / Employment"><field name="mobile2" widget="phone"/><field name="phone_work" widget="phone"/><field name="employer"/></group>
+                        <group string="Additional Contact / Employment"><field name="mobile2" widget="phone"/><field name="phone_work" widget="phone"/><field name="employer"/><field name="employer_partner_id" options="{'no_create_edit': False}"/></group>
                     </group>
                     <separator string="Identification" groups="base.group_system"/>
                     <field name="identity_document_ids" context="{'default_partner_id': id}" groups="base.group_system">

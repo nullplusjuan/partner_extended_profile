@@ -15,6 +15,13 @@ class ResPartner(models.Model):
     mobile2 = fields.Char(string="Alternate Mobile")
     phone_work = fields.Char(string="Work Phone")
     employer = fields.Char(string="Place of Employment")
+    employer_partner_id = fields.Many2one(
+        "res.partner",
+        string="Employer Contact",
+        ondelete="set null",
+        domain="[('is_company', '=', True)]",
+        help="Company/contact record representing this person's employer.",
+    )
     marital_status = fields.Selection(
         [("single", "Single"), ("married", "Married"), ("common_law", "Common Law"), ("other", "Other")],
         string="Marital Status",
