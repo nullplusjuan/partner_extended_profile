@@ -26,6 +26,10 @@ class ResPartner(models.Model):
         [("single", "Single"), ("married", "Married"), ("common_law", "Common Law"), ("other", "Other")],
         string="Marital Status",
     )
+    emergency_contact_name = fields.Char(string="Emergency Contact Name")
+    emergency_contact_relationship = fields.Char(string="Emergency Contact Relationship")
+    emergency_contact_phone = fields.Char(string="Emergency Contact Phone")
+    emergency_contact_email = fields.Char(string="Emergency Contact Email")
     identity_document_ids = fields.One2many(
         "res.partner.identity.document", "partner_id", string="Identification Documents"
     )
