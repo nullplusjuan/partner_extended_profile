@@ -11,6 +11,16 @@
                         <group string="Personal"><field name="birth_date"/><field name="gender"/><field name="marital_status"/></group>
                         <group string="Additional Contact / Employment"><field name="mobile2" widget="phone"/><field name="phone_work" widget="phone"/><field name="employer"/><field name="employer_partner_id" options="{'no_create_edit': False}"/></group>
                     </group>
+                    <group string="Emergency Contact">
+                        <group>
+                            <field name="emergency_contact_name"/>
+                            <field name="emergency_contact_relationship"/>
+                        </group>
+                        <group>
+                            <field name="emergency_contact_phone" widget="phone"/>
+                            <field name="emergency_contact_email" widget="email"/>
+                        </group>
+                    </group>
                     <separator string="Identification" groups="base.group_system"/>
                     <field name="identity_document_ids" context="{'default_partner_id': id}" groups="base.group_system">
                         <list editable="bottom"><field name="identity_type_id"/><field name="number"/><field name="issue_date"/><field name="expiry_date"/><field name="document_copy" filename="document_filename"/><field name="document_filename" column_invisible="True"/></list>

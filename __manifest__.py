@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 {
     "name": "Partner Extended Profile",
-    "version": "18.0.5.0.0",
+    "version": "18.0.6.0.0",
     "summary": "Reusable personal, contact and identity profile fields for Odoo contacts",
     "author": "Quadrintin Solutions",
     "category": "Contacts",
