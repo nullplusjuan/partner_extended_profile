@@ -1,2 +1,61 @@
-*.pyc
+# Python bytecode / caches
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Python tooling / tests
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Local virtual environments / environment files
+/.venv/
+/venv/
+/env/
+.direnv/
+.envrc
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Python packaging
+*.egg-info/
+/build/
+/dist/
+
+# Frontend tooling
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime / generated artifacts
+*.log
+*.pid
+*.tmp
+*.bak
+*.orig
+_pdf/
+
+# Local secrets / credentials
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
